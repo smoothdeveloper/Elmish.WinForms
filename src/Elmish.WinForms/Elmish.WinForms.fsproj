@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net461</TargetFrameworks>
+    <Description>F# bindings for using Elmish in Windows forms</Description>
+    <PackageProjectUrl>https://github.com/smoothdeveloper/Elmish.WinForms</PackageProjectUrl>
+    <PackageTags>WinForms F# fsharp Elmish Elm</PackageTags>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <!--Turn on warnings for unused values (arguments and let bindings) -->
+    <OtherFlags>$(OtherFlags) --warnon:1182</OtherFlags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net461'">
+    <DisableImplicitSystemValueTupleReference>true</DisableImplicitSystemValueTupleReference>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="InternalTypes.fs" />
+    <Compile Include="InternalUtils.fs" />
+    <Compile Include="Utils.fs" />
+    <Compile Include="Config.fs" />
+    <Compile Include="Binding.fs" />
+    <Compile Include="ViewModel.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Elmish" Version="[3.0.3, 4)" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta2-19367-01">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="4.6.2" />
+  </ItemGroup>
+
+
+</Project>
